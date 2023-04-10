@@ -1,11 +1,8 @@
 const findTheOldest = function (array) {
+	const currentYear = new Date().getFullYear();
 	array.forEach((item) => {
-		if ("yearOfDeath" in item === false) {
-			item.currentYear = new Date().getFullYear();
-		}
 		item.age =
-			item.yearOfDeath - item.yearOfBirth ||
-			item.currentYear - item.yearOfBirth;
+			item.yearOfDeath - item.yearOfBirth || currentYear - item.yearOfBirth;
 	});
 
 	const ages = array.map((person) => person.age);
